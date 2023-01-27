@@ -8,7 +8,7 @@ const app = express()
 
 //static files
 app.use(express.static('public'))
-const botname="Whooby bot"
+const botname="Reckno bot"
 
 const server = app.listen(process.env.PORT || 3000 || 4000, ()=>{
     console.log("listening to requests");
