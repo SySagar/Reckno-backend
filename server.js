@@ -41,14 +41,17 @@ io.on('connection' , socket=>{
         //this notifies everyone
         const user =userLeave(socket.id)
 
-        if(user)
+        if(user){
         io.to(user.room).emit('message',formatMessage(botname , user.username+" has left the chat"))
 
+        //send user and room info
         io.to(user.room).emit('roomUsers',{
             room: user.room,
             users: getRoomUsers(user.room)
         })
+    }
     })
+
     
     //listen for chatMessage
     socket.on('chatMessage',(msg)=>{
